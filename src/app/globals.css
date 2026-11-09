@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake, corporate;
+}
+
+/* Brand color: 0xFFFD6B04 (ARGB) = #FD6B04 */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #fd6b04;
+  --color-primary-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+  --color-primary: #fd6b04;
+  --color-primary-content: #ffffff;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-16px);
+    }
+  }
+
+  /* Moves left → right; the list is duplicated so -50% → 0 loops seamlessly. */
+  @keyframes marquee {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+/* Every .btn uses the brand color by default (btn-outline / btn-ghost etc. still work). */
+@layer components {
+  .btn {
+    --btn-color: var(--color-primary);
+    --btn-fg: var(--color-primary-content);
+  }
+
+  .btn.navbar-login {
+    background-color: #fd6b04;
+    border-color: #fd6b04;
+    color: #ffffff;
+  }
+
+  .btn.navbar-login:hover {
+    background-color: #d95a00;
+    border-color: #d95a00;
+    color: #ffffff;
+  }
+}
