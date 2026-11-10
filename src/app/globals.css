@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* Make Tailwind dark: follow the theme toggle (<html data-theme="dark">),
+   falling back to the OS setting when no theme has been chosen yet. */
+@custom-variant dark {
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme]), :root:not([data-theme]) *) {
+      @slot;
+    }
+  }
+}
+
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, cupcake, corporate;
 }

@@ -9,7 +9,7 @@ export const ariaFor = (name: string, error?: string) =>
   error ? { "aria-invalid": true as const, "aria-describedby": `${name}-error` } : {};
 
 export const submitCls =
-  "btn btn-lg w-full rounded-xl border-[#FD6B04] bg-[#FD6B04] text-white shadow-lg shadow-[#FD6B04]/30 hover:border-[#D95A00] hover:bg-[#D95A00] disabled:bg-[#FD6B04]/60 disabled:text-white";
+  "btn btn-lg w-full rounded-xl border-[#FD6B04] bg-[#FD6B04] text-white shadow-sm shadow-[#FD6B04]/15 hover:border-[#D95A00] hover:bg-[#D95A00] disabled:bg-[#FD6B04]/60 disabled:text-white";
 
 export function Field({
   label,
@@ -68,7 +68,7 @@ export default function AuthShell({
   children: ReactNode;
 }) {
   return (
-    <section className="mx-auto grid max-w-5xl overflow-hidden rounded-box bg-base-100 shadow lg:grid-cols-2">
+    <section className="mx-auto grid max-w-5xl overflow-hidden rounded-box bg-base-100 shadow-sm lg:grid-cols-2">
       <div className="relative hidden overflow-hidden bg-[#FD6B04] p-10 text-white lg:flex lg:flex-col lg:justify-between">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 size-64 animate-float rounded-full bg-white/10 motion-reduce:animate-none" />

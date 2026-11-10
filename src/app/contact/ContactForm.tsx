@@ -50,7 +50,7 @@ export default function ContactForm() {
   if (state.ok) {
     return (
       <div role="status" className="flex flex-col items-center py-10 text-center animate-fade-up motion-reduce:animate-none">
-        <span className="flex size-20 items-center justify-center rounded-full bg-[#FD6B04] text-white shadow-lg shadow-[#FD6B04]/30">
+        <span className="flex size-20 items-center justify-center rounded-full bg-[#FD6B04] text-white shadow-sm shadow-[#FD6B04]/15">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} className="size-10" aria-hidden="true">
             <path d="M5 12l5 5 9-10" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -115,7 +115,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={pending}
-          className="btn btn-lg w-full rounded-xl border-[#FD6B04] bg-[#FD6B04] text-white shadow-lg shadow-[#FD6B04]/30 hover:border-[#D95A00] hover:bg-[#D95A00] disabled:bg-[#FD6B04]/60 disabled:text-white sm:w-auto"
+          className="btn btn-lg w-full rounded-xl border-[#FD6B04] bg-[#FD6B04] text-white shadow-sm shadow-[#FD6B04]/15 hover:border-[#D95A00] hover:bg-[#D95A00] disabled:bg-[#FD6B04]/60 disabled:text-white sm:w-auto"
         >
           {pending ? (
             <span className="loading loading-spinner loading-sm" />

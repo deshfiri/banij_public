@@ -59,12 +59,12 @@ export default function Navbar() {
       </nav>
       <div className="navbar-end gap-2">
         <div className="hidden items-center gap-2 lg:flex">
-          <ThemeToggle className="bg-base-100 text-base-content hover:border-[#FD6B04] hover:bg-[#FD6B04] hover:text-white" />
+          <ThemeToggle className="border-black bg-transparent text-black shadow-none transition-colors hover:border-[#FD6B04] hover:bg-[#FD6B04] hover:text-white dark:border-white dark:text-white dark:hover:border-[#FD6B04]" />
         </div>
         {/* Log in: goes to the client hub on every screen size */}
         <a
           href={LOGIN_URL}
-          className="btn btn-circle border-black bg-transparent text-black shadow-none transition-colors hover:border-[#FD6B04] hover:bg-[#FD6B04] hover:text-white max-lg:btn-ghost max-lg:border-transparent max-lg:bg-transparent max-lg:text-base-content max-lg:shadow-none max-lg:hover:border-transparent max-lg:hover:bg-base-200"
+          className="btn btn-circle border-black bg-transparent text-black shadow-none transition-colors hover:border-[#FD6B04] hover:bg-[#FD6B04] hover:text-white dark:border-white dark:text-white dark:hover:border-[#FD6B04] max-lg:btn-ghost max-lg:border-transparent max-lg:bg-transparent max-lg:text-base-content max-lg:shadow-none max-lg:hover:border-transparent max-lg:hover:bg-base-200"
           aria-label="Log in"
           title="Log in"
         >

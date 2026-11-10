@@ -121,7 +121,7 @@ export default function Contact() {
               <p className="mt-1 break-words text-base-content/70">{c.value}</p>
             </>
           );
-          const cls = "group block rounded-xl border border-base-300 bg-transparent p-5 transition duration-200 hover:-translate-y-1 hover:border-[#FD6B04]/60 hover:shadow-md hover:shadow-[#FD6B04]/10 motion-reduce:transform-none motion-reduce:transition-none";
+          const cls = "group block rounded-xl border border-base-300 bg-transparent p-5 transition duration-200 hover:-translate-y-1 hover:border-[#FD6B04]/60 hover:shadow-sm hover:shadow-[#FD6B04]/5 motion-reduce:transform-none motion-reduce:transition-none";
           return c.href ? (
             <a
               key={c.title}

@@ -68,12 +68,12 @@ function Cell({ value }: { value: boolean | string }) {
 
 export default function PackagesPage() {
   return (
-    <div className="space-y-8 [&>*:first-child]:mt-0">
+    <div className="space-y-8">
       {/* Pricing cards with Monthly / Yearly toggle (same as the home page) */}
       <Subscription />
 
       {/* Comparison table */}
-      <section className={`${fadeUp} rounded-box bg-base-100 p-6 shadow md:p-10`}>
+      <section className={`${fadeUp} rounded-box bg-base-100 p-6 shadow-sm md:p-10`}>
         <div className="text-center">
           <h2 className="text-2xl font-extrabold md:text-4xl">
             Compare <span className="text-[#FD6B04]">Plans</span>
@@ -119,7 +119,7 @@ export default function PackagesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="rounded-box bg-base-100 p-6 shadow md:p-10">
+      <section className="rounded-box bg-base-100 p-6 shadow-sm md:p-10">
         <div className="text-center">
           <span className="inline-block rounded-full bg-[#FD6B04]/10 px-4 py-1.5 text-sm font-semibold text-[#FD6B04]">FAQ</span>
           <h2 className="mt-3 text-2xl font-extrabold md:text-4xl">
@@ -145,7 +145,7 @@ export default function PackagesPage() {
       </section>
 
       {/* Call to action */}
-      <section className="relative overflow-hidden rounded-box bg-gradient-to-r from-[#FD6B04] to-[#FF8A2B] px-6 py-12 text-center text-white shadow-lg md:py-14">
+      <section className="relative overflow-hidden rounded-box bg-gradient-to-r from-[#FD6B04] to-[#FF8A2B] px-6 py-12 text-center text-white shadow-sm md:py-14">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -left-10 -top-10 size-40 animate-float rounded-full bg-white/10 motion-reduce:animate-none" />
           <div

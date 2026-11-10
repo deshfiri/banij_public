@@ -30,14 +30,14 @@ export default function ClientLogos({ title = "Client" }: { title?: string }) {
   const loop = [...logos, ...logos];
 
   return (
-    <section className="mt-8 rounded-box bg-base-100 p-6 shadow md:p-8">
+    <section className="rounded-box bg-base-100 p-6 shadow-sm md:p-8">
       <h2 className="mb-6 text-2xl font-bold md:text-3xl">{title}</h2>
 
       <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         <ul className="flex w-max animate-marquee gap-6 group-hover:[animation-play-state:paused] motion-reduce:animate-none [animation-direction:reverse]">
           {loop.map((logo, i) => (
             <li key={i} aria-hidden={i >= logos.length}>
-              <div className="flex h-20 w-36 items-center justify-center p-2 overflow-hidden rounded-xl   bg-white  shadow transition-transform duration-100 hover:scale-105 md:h-24 md:w-44">
+              <div className="flex h-20 w-36 items-center justify-center p-2 overflow-hidden rounded-xl   bg-white  shadow-sm transition-transform duration-100 hover:scale-105 md:h-24 md:w-44">
                 <Image
                   src={logo.src}
                   alt={i < logos.length ? logo.alt : ""}

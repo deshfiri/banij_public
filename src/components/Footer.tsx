@@ -96,7 +96,7 @@ const linkClass = "text-base-content/70 transition-colors hover:text-[#FD6B04]";
 
 export default function Footer() {
   return (
-    <footer className="mt-8 border-t-4 border-[#FD6B04] bg-base-100 text-base-content">
+    <footer className="border-t-4 border-[#FD6B04] bg-base-100 text-base-content">
       <div className="container mx-auto grid gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr]">
         {/* Brand */}
         <div>

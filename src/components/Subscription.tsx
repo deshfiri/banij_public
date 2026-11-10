@@ -101,29 +101,28 @@ export default function Subscription() {
 
   const toggleBtn = (value: Billing) =>
     `rounded-full px-6 py-2 font-medium transition-colors ${
-      billing === value ? "bg-[#FD6B04] text-white shadow-sm shadow-[#FD6B04]/25" : "text-[#514B65] hover:text-[#171525]"
+      billing === value ? "bg-[#FD6B04] text-white shadow-xs shadow-[#FD6B04]/10" : "text-base-content/75 hover:text-base-content"
     }`;
 
   return (
-    <section className="relative isolate mt-2verflow-hidden rounded-[2rem] px-4 py-12 md:px-8 md:py-16">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[34rem]]" />
+    <section className="relative isolate overflow-hidden rounded-3xl border border-base-content/10 bg-base-100 px-6 py-10 md:px-10 md:py-14">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center">
-          <span className="inline-flex rounded-full border border-[#FD6B04]/20 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#D95A00]">Pricing</span>
+          <span className="inline-flex rounded-full border border-[#FD6B04]/20 bg-base-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#D95A00] dark:text-[#FF9A4D]">Pricing</span>
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-5xl">
             Explore our plans and <span className="text-[#FD6B04]">pricing</span>
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-base text-[#514B65]">Choose a plan that’s right for you.</p>
+          <p className="mx-auto mt-3 max-w-xl text-base text-base-content/75">Choose a plan that’s right for you.</p>
 
           {/* Monthly / Yearly toggle */}
-          <div role="group" aria-label="Billing period" className="mt-6 inline-flex items-center rounded-full border border-[#E3E2EE] bg-white/80 p-1 shadow-sm">
+          <div role="group" aria-label="Billing period" className="mt-6 inline-flex items-center rounded-full border border-base-300 bg-base-100 p-1 shadow-xs">
             <button type="button" className={toggleBtn("monthly")} aria-pressed={billing === "monthly"} onClick={() => setBilling("monthly")}>
               Monthly
             </button>
             <button type="button" className={`${toggleBtn("yearly")} flex items-center gap-2`} aria-pressed={billing === "yearly"} onClick={() => setBilling("yearly")}>
               Yearly
-              <span className={`rounded-full px-2 py-0.5 text-sm font-semibold ${billing === "yearly" ? "bg-white/20 text-white" : "bg-transparent text-[#D95A00]"}`}>
+              <span className={`rounded-full px-2 py-0.5 text-sm font-semibold ${billing === "yearly" ? "bg-white/20 text-white" : "bg-transparent text-[#D95A00] dark:text-[#FF9A4D]"}`}>
                 Save 20%
               </span>
             </button>
@@ -135,7 +134,7 @@ export default function Subscription() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col rounded-2xl border p-6 shadow-[0_12px_35px_rgba(38,43,77,0.08)] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(253,107,4,0.14)] motion-reduce:transform-none motion-reduce:transition-none md:p-8 ${plan.popular ? "border-[#FD6B04]/35 bg-white ring-1 ring-[#FD6B04]/15 lg:-translate-y-3" : "border-[#E7E8F0] bg-white/95"}`}
+              className={`relative flex flex-col rounded-2xl border p-6 shadow-[0_4px_14px_rgba(38,43,77,0.05)] dark:shadow-[0_4px_14px_rgba(0,0,0,0.25)] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(253,107,4,0.08)] motion-reduce:transform-none motion-reduce:transition-none md:p-8 ${plan.popular ? "border-[#FD6B04]/50 bg-base-100 ring-1 ring-[#FD6B04]/15 lg:-translate-y-3" : "border-base-300 bg-base-100"}`}
             >
               {plan.popular && (
                 <span className="absolute right-5 top-5 inline-flex items-center gap-1 rounded-md bg-[#FD6B04] px-2.5 py-1 text-xs font-semibold text-white">
@@ -146,20 +145,20 @@ export default function Subscription() {
 
               <div className="flex items-start gap-4">
                 <div>
-                  <h3 className="text-xl font-bold text-[#171525]">{plan.name}</h3>
-                  <p className="text-base-content/70">{plan.description}</p>
+                  <h3 className="text-xl font-bold text-base-content">{plan.name}</h3>
+                  <p className="text-base-content/75">{plan.description}</p>
                 </div>
               </div>
 
-              <div className="mt-7 flex items-baseline gap-1 border-b border-[#ECECF2] pb-6">
-                <span className="text-2xl font-semibold text-[#171525]">$</span>
-                <span className="text-5xl font-extrabold tracking-tight text-[#171525]">{priceOf(plan.monthly)}</span>
-                <span className="text-base text-[#686779]">/ {billing === "monthly" ? "mo" : "yr"}</span>
+              <div className="mt-7 flex items-baseline gap-1 border-b border-base-300 pb-6">
+                <span className="text-2xl font-semibold text-base-content">$</span>
+                <span className="text-5xl font-extrabold tracking-tight text-base-content">{priceOf(plan.monthly)}</span>
+                <span className="text-base text-base-content/65">/ {billing === "monthly" ? "mo" : "yr"}</span>
               </div>
 
-              <p className="mt-3 text-xs text-[#777687]">{billing === "monthly" ? "Billed monthly" : "Billed yearly"}</p>
+              <p className="mt-3 text-xs text-base-content/60">{billing === "monthly" ? "Billed monthly" : "Billed yearly"}</p>
 
-              <ul className="mt-5 flex-1 space-y-4 text-sm text-[#393847]">
+              <ul className="mt-5 flex-1 space-y-4 text-sm text-base-content/85">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
                     <CheckIcon />
@@ -170,10 +169,10 @@ export default function Subscription() {
 
               <Link
                 href={plan.cta.href}
-                  className={`btn mt-8 min-h-12 w-full rounded-lg border-2 border-b-4 bg-white text-[#171525] shadow-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#FFF8F3] motion-reduce:transform-none motion-reduce:transition-none ${
+                  className={`btn mt-8 min-h-12 w-full rounded-lg border-2 border-b-4 bg-base-100 text-base-content shadow-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#FD6B04]/10 motion-reduce:transform-none motion-reduce:transition-none ${
                   plan.popular
                     ? "border-[#FD6B04] hover:border-[#D95A00]"
-                    : "border-[#DAD9E2] hover:border-[#FD6B04]"
+                    : "border-base-300 hover:border-[#FD6B04]"
                 }`}
               >
                 {plan.cta.label} {icons.chevron}
@@ -183,7 +182,7 @@ export default function Subscription() {
         </div>
 
         {/* Trust bar */}
-        <div className="mt-10 grid gap-6 border-t border-[#E7E8F0] pt-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 border-t border-base-300 pt-8 sm:grid-cols-2 lg:grid-cols-4">
           {perks.map((perk, i) => (
             <div key={perk.title} className={`flex items-center gap-4 lg:px-6 ${i > 0 ? "lg:border-l lg:border-[#FD6B04]/25" : ""}`}>
               <span className="shrink-0 text-[#FD6B04]">{perk.icon}</span>

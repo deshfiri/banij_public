@@ -123,24 +123,24 @@ export default function ProcessPage() {
                   <span aria-hidden="true" className="absolute bottom-0 left-[1.35rem] top-12 w-px bg-[#FD6B04]/25 sm:left-[1.55rem]" />
                 )}
                 <div className="relative z-10 flex justify-center">
-                  <span className="flex size-11 items-center justify-center rounded-full border-2 border-[#FD6B04] bg-white text-sm font-bold text-[#FD6B04]">
+                  <span className="flex size-11 items-center justify-center rounded-full border-2 border-[#FD6B04] bg-base-100 text-sm font-bold text-[#FD6B04]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <article className="mb-8 rounded-xl border border-base-300 bg-white p-5 sm:p-6">
+                <article className="mb-8 rounded-xl border border-base-300 bg-base-100 p-5 shadow-xs sm:p-6">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-wider text-[#FD6B04]">Step {i + 1}</p>
                       <h3 className="mt-1 text-xl font-bold">{step.title}</h3>
                     </div>
-                    <span className="rounded-full bg-[#FD6B04]/10 px-3 py-1 text-sm font-medium text-[#D95A00]">
+                    <span className="rounded-full bg-[#FD6B04]/10 px-3 py-1 text-sm font-medium text-[#D95A00] dark:bg-[#FD6B04]/20 dark:text-[#FF9A4D]">
                       {step.duration}
                     </span>
                   </div>
-                  <p className="mt-3 text-base-content/70">{step.text}</p>
+                  <p className="mt-3 text-base-content/80">{step.text}</p>
                   <div className="mt-5 border-t border-base-300 pt-4">
                     <p className="text-xs font-semibold uppercase tracking-wide text-base-content/60">What you get</p>
-                    <ul className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+                    <ul className="mt-3 grid gap-2 text-sm text-base-content/90 sm:grid-cols-2">
                       {step.deliverables.map((d) => (
                         <li key={d} className="flex items-center gap-2">
                           <Check />

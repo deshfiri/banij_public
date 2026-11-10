@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-base-200 text-base-content font-sans">
+      <body className="min-h-screen flex flex-col bg-white text-base-content font-sans dark:bg-base-200">
         <Navbar />
         <main className="flex-1 container mx-auto px-4 py-8">{children}</main>
         <Footer />

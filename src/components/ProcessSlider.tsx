@@ -64,7 +64,7 @@ export default function ProcessSlider() {
   };
 
   return (
-    <section className="mt-8 rounded-box border border-base-300 bg-base-100 p-5 shadow-sm md:p-10">
+    <section className="rounded-box border border-base-300 bg-base-100 px-6 py-10 shadow-xs md:px-10 md:py-14">
       {/* Header */}
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="text-center md:text-left">
@@ -120,7 +120,7 @@ export default function ProcessSlider() {
                   <span
                     className={`flex size-12 items-center justify-center rounded-full border-2 transition-all duration-300 ${
                       current
-                        ? "scale-110 border-[#FD6B04] bg-[#FD6B04] text-white shadow-lg shadow-[#FD6B04]/30"
+                        ? "scale-110 border-[#FD6B04] bg-[#FD6B04] text-white shadow-sm shadow-[#FD6B04]/15"
                         : done
                           ? "border-[#FD6B04] bg-base-100 text-[#FD6B04]"
                           : "border-base-300 bg-base-100 text-base-content/50 group-hover:border-[#FD6B04]/60 group-hover:text-[#FD6B04]"
@@ -147,7 +147,7 @@ export default function ProcessSlider() {
           className="mt-8 rounded-2xl border border-base-300 bg-base-200 p-8"
         >
           <div key={active} className="flex animate-fade-up gap-6 motion-reduce:animate-none">
-            <span className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-[#FD6B04] text-white shadow-lg shadow-[#FD6B04]/30">
+            <span className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-[#FD6B04] text-white shadow-sm shadow-[#FD6B04]/15">
               <Icon paths={STEP_ICONS[active]} className="size-8" />
             </span>
 
@@ -181,7 +181,7 @@ export default function ProcessSlider() {
               type="button"
               onClick={() => go(active - 1)}
               disabled={active === 0}
-              className="btn btn-ghost hover:bg-[#FD6B04]/10 hover:text-[#FD6B04] gap-2"
+              className="btn gap-2 border-[#FD6B04] bg-transparent text-[#FD6B04] shadow-none hover:border-[#E35F00] hover:bg-[#FD6B04] hover:text-white disabled:border-[#FD6B04]/30 disabled:bg-transparent disabled:text-[#FD6B04]/40"
             >
               <Icon paths={ARROW_LEFT} className="size-4" />
               Previous
@@ -209,7 +209,7 @@ export default function ProcessSlider() {
             {i < last && (
               <span aria-hidden="true" className="absolute -bottom-5 left-[1.375rem] top-12 w-0.5 bg-[#FD6B04]/30" />
             )}
-            <span className="relative flex size-11 shrink-0 items-center justify-center rounded-full bg-[#FD6B04] text-white shadow-md shadow-[#FD6B04]/30">
+            <span className="relative flex size-11 shrink-0 items-center justify-center rounded-full bg-[#FD6B04] text-white shadow-sm shadow-[#FD6B04]/15">
               <Icon paths={STEP_ICONS[i]} className="size-5" />
             </span>
             <div className="flex-1 rounded-2xl border border-base-300 bg-base-200 p-4">
@@ -232,9 +232,13 @@ export default function ProcessSlider() {
         ))}
       </ol>
 
-      <div className="mt-8 text-center md:mt-6">
-        <Link href="/process" className="link text-[#FD6B04] hover:text-[#E35F00] text-sm font-semibold">
-          See the full process in detail →
+      <div className="mt-8 flex justify-center border-t border-base-300 pt-8">
+        <Link
+          href="/process"
+          className="group btn gap-2 rounded-xl border-[#FD6B04] bg-transparent px-6 text-[#FD6B04] shadow-none hover:border-[#E35F00] hover:bg-[#FD6B04] hover:text-white"
+        >
+          See the full process in detail
+          <Icon paths={ARROW_RIGHT} className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
         </Link>
       </div>
     </section>

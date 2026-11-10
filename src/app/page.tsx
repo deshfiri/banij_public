@@ -19,9 +19,9 @@ const heroStats = [
 
 export default function Home() {
   return (
-    <>
+    <div className="space-y-8">
       {/* Hero */}
-      <section className="relative overflow-hidden rounded-box bg-base-100 shadow">
+      <section className="relative overflow-hidden rounded-box bg-base-100 shadow-sm">
         <div className="relative grid items-center gap-12 p-6 md:p-12 lg:grid-cols-2">
           {/* Left 50%: heading, text, buttons */}
           <div className="text-center lg:text-left">
@@ -74,7 +74,7 @@ export default function Home() {
             
 
             {/* Floating badges */}
-            {/* <div className="absolute -left-3 -top-5 hidden animate-float items-center gap-3 rounded-2xl bg-base-100 px-4 py-3 shadow-xl motion-reduce:animate-none sm:flex md:-left-6">
+            {/* <div className="absolute -left-3 -top-5 hidden animate-float items-center gap-3 rounded-2xl bg-base-100 px-4 py-3 shadow-sm motion-reduce:animate-none sm:flex md:-left-6">
               <span className="flex size-10 items-center justify-center rounded-xl bg-[#FD6B04]/10 text-[#FD6B04]">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="size-5" aria-hidden="true">
                   <path d="M3 17l6-6 4 4 8-8M15 7h6v6" strokeLinecap="round" strokeLinejoin="round" />
@@ -86,7 +86,7 @@ export default function Home() {
               </div>
             </div> */}
             {/* <div
-              className="absolute -bottom-5 -right-3 hidden animate-float items-center gap-3 rounded-2xl bg-base-100 px-4 py-3 shadow-xl motion-reduce:animate-none sm:flex md:-right-6"
+              className="absolute -bottom-5 -right-3 hidden animate-float items-center gap-3 rounded-2xl bg-base-100 px-4 py-3 shadow-sm motion-reduce:animate-none sm:flex md:-right-6"
               style={{ animationDelay: "-3s" }}
             >
               <span className="flex size-10 items-center justify-center rounded-xl bg-[#FD6B04] text-white">
@@ -104,13 +104,9 @@ export default function Home() {
       </section>
 
       <ClientLogos />
-
-    
-
       <ProcessSlider />
-        <ClientBenefits />
-
+      <ClientBenefits />
       <Subscription />
-    </>
+    </div>
   );
 }

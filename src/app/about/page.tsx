@@ -91,7 +91,7 @@ export default function About() {
   return (
     <div className="space-y-8">
       {/* Hero */}
-      <section className="relative overflow-hidden rounded-box bg-base-100 shadow">
+      <section className="relative overflow-hidden rounded-box bg-base-100 shadow-sm">
         <div className="relative grid items-center gap-10 p-6 md:p-12 lg:grid-cols-2">
           <div className="text-center lg:text-left">
             <span className={`${fadeUp} inline-block rounded-full bg-[#FD6B04]/10 px-4 py-1.5 text-sm font-semibold ${accent}`}>
@@ -122,8 +122,8 @@ export default function About() {
 
           {/* Visual: logo card with floating badges */}
           <div className={`${fadeUp} relative mx-auto w-full max-w-md`} style={delay(2)}>
-            <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] shadow-2xl shadow-[#FD6B04]/30">
-              <div className="absolute inset-10 flex items-center justify-center rounded-3xl bg-white/95 p-8 shadow-xl">
+            <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] shadow-md shadow-[#FD6B04]/15">
+              <div className="absolute inset-10 flex items-center justify-center rounded-3xl bg-white/95 p-8 shadow-sm">
                 <Image
                   src="/logo/logo-removebg-preview.png"
                   alt={`${siteName} logo`}
@@ -135,11 +135,11 @@ export default function About() {
               </div>
             </div>
 
-            <div className="absolute -left-4 top-8 rounded-2xl bg-base-100 px-4 py-3 shadow-xl md:-left-8">
+            <div className="absolute -left-4 top-8 rounded-2xl bg-base-100 px-4 py-3 shadow-sm md:-left-8">
               <p className={`text-2xl font-extrabold ${accent}`}>120+</p>
               <p className="text-xs text-base-content/70">Happy clients</p>
             </div>
-            <div className="absolute -right-4 bottom-8 rounded-2xl bg-base-100 px-4 py-3 shadow-xl md:-right-8">
+            <div className="absolute -right-4 bottom-8 rounded-2xl bg-base-100 px-4 py-3 shadow-sm md:-right-8">
               <p className={`text-2xl font-extrabold ${accent}`}>98%</p>
               <p className="text-xs text-base-content/70">Satisfaction</p>
             </div>
@@ -148,7 +148,7 @@ export default function About() {
       </section>
 
       {/* Stats band */}
-      <section className="grid grid-cols-2 gap-4 rounded-box bg-gradient-to-r from-[#FD6B04] to-[#FF8A2B] p-6 text-center text-white shadow-lg md:grid-cols-4 md:p-8">
+      <section className="grid grid-cols-2 gap-4 rounded-box bg-gradient-to-r from-[#FD6B04] to-[#FF8A2B] p-6 text-center text-white shadow-sm md:grid-cols-4 md:p-8">
         {stats.map((s, i) => (
           <div key={s.label} className={`${fadeUp} ${i > 0 ? "md:border-l md:border-white/25" : ""}`} style={delay(i)}>
             <p className="text-3xl font-extrabold md:text-4xl">{s.value}</p>
@@ -158,7 +158,7 @@ export default function About() {
       </section>
 
       {/* Mission / Vision / Values */}
-      <section className="rounded-box bg-base-100 px-6 py-12 shadow md:px-10 md:py-16">
+      <section className="rounded-box bg-base-100 px-6 py-12 shadow-sm md:px-10 md:py-16">
         <div className="text-center">
           <h2 className={sectionTitle}>
             What <span className={accent}>Drives</span> Us
@@ -169,10 +169,10 @@ export default function About() {
           {pillars.map((p, i) => (
             <div
               key={p.title}
-              className={`${fadeUp} group rounded-3xl border-2 border-transparent bg-[#FD6B04]/5 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#FD6B04] hover:bg-base-100 hover:shadow-xl hover:shadow-[#FD6B04]/15`}
+              className={`${fadeUp} group rounded-3xl border-2 border-transparent bg-[#FD6B04]/5 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#FD6B04] hover:bg-base-100 hover:shadow-md hover:shadow-[#FD6B04]/10`}
               style={delay(i)}
             >
-              <div className="flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] text-white shadow-md shadow-[#FD6B04]/30">
+              <div className="flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] text-white shadow-sm shadow-[#FD6B04]/15">
                 {p.icon}
               </div>
               <h3 className="mt-6 text-xl font-bold">{p.title}</h3>
@@ -184,7 +184,7 @@ export default function About() {
 
       {/* Story timeline + Why choose us */}
       <section className="grid gap-8 lg:grid-cols-2">
-        <div className="rounded-box bg-base-100 p-6 shadow md:p-10">
+        <div className="rounded-box bg-base-100 p-6 shadow-sm md:p-10">
           <h2 className={sectionTitle}>
             Our <span className={accent}>Story</span>
           </h2>
@@ -200,7 +200,7 @@ export default function About() {
           </ol>
         </div>
 
-        <div className="relative overflow-hidden rounded-box bg-base-100 p-6 shadow md:p-10">
+        <div className="relative overflow-hidden rounded-box bg-base-100 p-6 shadow-sm md:p-10">
           <h2 className={`relative ${sectionTitle}`}>
             Why <span className={accent}>Choose</span> Us
           </h2>
@@ -221,7 +221,7 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="rounded-box bg-base-100 px-6 py-12 shadow md:px-10 md:py-16">
+      <section className="rounded-box bg-base-100 px-6 py-12 shadow-sm md:px-10 md:py-16">
         <div className="text-center">
           <h2 className={sectionTitle}>
             Meet the <span className={accent}>Team</span>
@@ -232,7 +232,7 @@ export default function About() {
           {team.map((m, i) => (
             <div
               key={m.role}
-              className={`${fadeUp} group rounded-3xl border-2 border-transparent bg-base-100 p-6 text-center shadow-lg`}
+              className={`${fadeUp} group rounded-3xl border-2 border-transparent bg-base-100 p-6 text-center shadow-sm`}
               style={delay(i)}
             >
               <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] p-1">
@@ -248,7 +248,7 @@ export default function About() {
       </section>
 
       {/* Call to action */}
-      <section className="relative overflow-hidden rounded-box bg-gradient-to-r from-[#FD6B04] to-[#FF8A2B] px-6 py-12 text-center text-white shadow-lg md:py-14">
+      <section className="relative overflow-hidden rounded-box bg-gradient-to-r from-[#FD6B04] to-[#FF8A2B] px-6 py-12 text-center text-white shadow-sm md:py-14">
         <div className="relative">
           <h2 className="text-3xl font-extrabold md:text-4xl">Let&apos;s build something great together</h2>
           <p className="mx-auto mt-3 max-w-xl text-white/90">
