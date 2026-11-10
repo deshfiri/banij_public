@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import ClientBenefits from "@/components/ClientBenefits";
 import ClientLogos from "@/components/ClientLogos";
 import ProcessSlider from "@/components/ProcessSlider";
 import Subscription from "@/components/Subscription";
@@ -21,15 +22,6 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden rounded-box bg-base-100 shadow">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-20 -top-20 size-64 animate-float rounded-full bg-[#FD6B04]/10 motion-reduce:animate-none" />
-          <div
-            className="absolute -bottom-24 right-1/3 size-56 animate-float rounded-full bg-[#FD6B04]/10 motion-reduce:animate-none"
-            style={{ animationDelay: "-3s" }}
-          />
-          <div className="absolute bottom-12 left-1/3 size-10 animate-float rounded-full bg-[#FD6B04]/25 motion-reduce:animate-none" />
-        </div>
-
         <div className="relative grid items-center gap-12 p-6 md:p-12 lg:grid-cols-2">
           {/* Left 50%: heading, text, buttons */}
           <div className="text-center lg:text-left">
@@ -56,10 +48,7 @@ export default function Home() {
             </div>
 
             {/* Trust row */}
-            <div
-              className={`${fadeUp} mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 border-t border-base-300 pt-6 lg:justify-start`}
-              style={delay(4)}
-            >
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 border-t border-base-300 pt-6 lg:justify-start">
               {heroStats.map((s) => (
                 <div key={s.label}>
                   <p className={`text-2xl font-extrabold ${accent}`}>{s.value}</p>
@@ -116,7 +105,10 @@ export default function Home() {
 
       <ClientLogos />
 
+    
+
       <ProcessSlider />
+        <ClientBenefits />
 
       <Subscription />
     </>

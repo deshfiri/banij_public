@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { contactInfo, siteName, socialLinks } from "@/lib/site";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = { title: "Contact" };
 
-const delay = (i: number, step = 100): CSSProperties => ({ animationDelay: `${i * step}ms` });
-const fadeUp = "animate-fade-up motion-reduce:animate-none";
 const accent = "text-[#FD6B04]";
 
 const icon = (path: ReactNode, className = "size-6") => (
@@ -98,23 +96,13 @@ export default function Contact() {
   return (
     <div className="space-y-8">
       {/* Hero */}
-      <section className="relative overflow-hidden rounded-box bg-base-100 px-6 py-14 text-center shadow md:py-20">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-16 -top-16 size-56 animate-float rounded-full bg-[#FD6B04]/10 motion-reduce:animate-none" />
-          <div
-            className="absolute -bottom-20 -right-10 size-72 animate-float rounded-full bg-[#FD6B04]/15 motion-reduce:animate-none"
-            style={{ animationDelay: "-3s" }}
-          />
-          <div className="absolute right-1/4 top-12 size-8 animate-float rounded-full bg-[#FD6B04]/30 motion-reduce:animate-none" />
-        </div>
-        <div className="relative mx-auto max-w-2xl">
-          <span className={`${fadeUp} inline-block rounded-full bg-[#FD6B04]/10 px-4 py-1.5 text-sm font-semibold ${accent}`}>
-            Contact Us
-          </span>
-          <h1 className={`${fadeUp} mt-4 text-4xl font-extrabold tracking-tight md:text-5xl`} style={delay(1)}>
+      <section className="animate-fade-up rounded-2xl border border-base-300 bg-transparent px-6 py-12 text-center motion-reduce:animate-none md:py-16">
+        <div className="mx-auto max-w-2xl">
+          <span className="text-sm font-semibold uppercase tracking-wider text-[#FD6B04]">Contact Us</span>
+          <h1 className="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl">
             Let&apos;s Talk About Your <span className={accent}>Business</span>
           </h1>
-          <p className={`${fadeUp} mt-4 text-lg text-base-content/70`} style={delay(2)}>
+          <p className="mt-4 text-lg text-base-content/70">
             Have a question, need a quote or want to start a project? Send us a message and our team will get back to
             you quickly.
           </p>
@@ -123,29 +111,28 @@ export default function Contact() {
 
       {/* Contact cards */}
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {cards.map((c, i) => {
+        {cards.map((c) => {
           const inner = (
             <>
-              <div className="flex size-14 items-center justify-center rounded-2xl bg-[#FD6B04]/10 text-[#FD6B04] transition-all duration-300 group-hover:rotate-6 group-hover:bg-[#FD6B04] group-hover:text-white">
+              <div className="flex size-12 items-center justify-center rounded-xl bg-[#FD6B04]/10 text-[#FD6B04]">
                 {c.icon}
               </div>
               <h2 className="mt-5 text-lg font-bold">{c.title}</h2>
               <p className="mt-1 break-words text-base-content/70">{c.value}</p>
             </>
           );
-          const cls = `${fadeUp} group block rounded-3xl border-2 border-transparent bg-base-100 p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FD6B04] hover:shadow-xl hover:shadow-[#FD6B04]/15`;
+          const cls = "group block rounded-xl border border-base-300 bg-transparent p-5 transition duration-200 hover:-translate-y-1 hover:border-[#FD6B04]/60 hover:shadow-md hover:shadow-[#FD6B04]/10 motion-reduce:transform-none motion-reduce:transition-none";
           return c.href ? (
             <a
               key={c.title}
               href={c.href}
               className={cls}
-              style={delay(i)}
               {...(c.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
               {inner}
             </a>
           ) : (
-            <div key={c.title} className={cls} style={delay(i)}>
+            <div key={c.title} className={cls}>
               {inner}
             </div>
           );
@@ -153,22 +140,19 @@ export default function Contact() {
       </section>
 
       {/* Info + form */}
-      <section className="grid overflow-hidden rounded-box bg-base-100 shadow lg:grid-cols-[2fr_3fr]">
-        {/* Left: orange info panel */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-[#FD6B04] to-[#FF8A2B] p-8 text-white md:p-10">
-          <div aria-hidden="true" className="absolute -bottom-16 -right-16 size-56 rounded-full bg-white/10" />
-          <div aria-hidden="true" className="absolute -left-10 top-1/3 size-28 rounded-full bg-white/10" />
-
-          <div className="relative">
+      <section className="grid gap-8 lg:grid-cols-[2fr_3fr]">
+        {/* Contact details */}
+        <div className="animate-fade-up rounded-2xl border border-base-300 bg-transparent p-6 motion-reduce:animate-none md:p-8">
+          <div>
             <h2 className="text-3xl font-extrabold">Get in Touch</h2>
-            <p className="mt-3 text-white/90">
+            <p className="mt-3 text-base-content/70">
               Fill out the form and the {siteName} team will contact you. Prefer to talk? Call or email us directly.
             </p>
 
             <ul className="mt-8 space-y-4">
               {promises.map((p) => (
                 <li key={p} className="flex items-center gap-3">
-                  <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-white text-[#FD6B04]">
+                  <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#FD6B04]/10 text-[#FD6B04]">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} className="size-3.5" aria-hidden="true">
                       <path d="M5 12l5 5 9-10" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -178,12 +162,12 @@ export default function Contact() {
               ))}
             </ul>
 
-            <div className="mt-10 space-y-3 border-t border-white/25 pt-8">
-              <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 hover:underline">
+            <div className="mt-8 space-y-3 border-t border-base-300 pt-6">
+              <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 break-all hover:text-[#FD6B04]">
                 {icon(<path d="M4 6h16v12H4zM4 7l8 6 8-6" />, "size-5")}
                 {contactInfo.email}
               </a>
-              <a href={`tel:${contactInfo.phone.replace(/[^\d+]/g, "")}`} className="flex items-center gap-3 hover:underline">
+              <a href={`tel:${contactInfo.phone.replace(/[^\d+]/g, "")}`} className="flex items-center gap-3 hover:text-[#FD6B04]">
                 {icon(<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" />, "size-5")}
                 {contactInfo.phone}
               </a>
@@ -198,7 +182,7 @@ export default function Contact() {
                   title={s.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex size-10 items-center justify-center rounded-full bg-white/15 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:text-[#FD6B04]"
+                  className="flex size-10 items-center justify-center rounded-full border border-base-300 text-base-content/70 transition duration-200 hover:scale-105 hover:border-[#FD6B04] hover:text-[#FD6B04] motion-reduce:transform-none motion-reduce:transition-none"
                 >
                   {icon(s.path, "size-5")}
                 </a>
@@ -208,7 +192,7 @@ export default function Contact() {
         </div>
 
         {/* Right: form */}
-        <div className="p-6 md:p-10">
+        <div className="animate-fade-up rounded-2xl border border-base-300 bg-transparent p-6 motion-reduce:animate-none md:p-8 [animation-delay:120ms]">
           <h2 className="text-2xl font-extrabold md:text-3xl">
             Send Us a <span className={accent}>Message</span>
           </h2>
@@ -218,7 +202,7 @@ export default function Contact() {
       </section>
 
       {/* Map */}
-      <section className="overflow-hidden rounded-box bg-base-100 shadow">
+      <section className="overflow-hidden rounded-2xl border border-base-300 bg-transparent">
         <iframe
           title={`Map showing ${contactInfo.address}`}
           src={`https://www.google.com/maps?q=${encodeURIComponent(contactInfo.mapQuery)}&z=17&output=embed`}

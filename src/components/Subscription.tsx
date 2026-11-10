@@ -101,38 +101,29 @@ export default function Subscription() {
 
   const toggleBtn = (value: Billing) =>
     `rounded-full px-6 py-2 font-medium transition-colors ${
-      billing === value ? "bg-[#FD6B04] text-white shadow-md shadow-[#FD6B04]/30" : "text-base-content/70 hover:text-base-content"
+      billing === value ? "bg-[#FD6B04] text-white shadow-sm shadow-[#FD6B04]/25" : "text-[#514B65] hover:text-[#171525]"
     }`;
 
   return (
-    <section className="relative mt-8 overflow-hidden rounded-box bg-base-100 px-4 py-12 shadow md:px-8 md:py-16">
-      {/* Decorative circles */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-24 -top-10 size-72 rounded-full bg-[#FD6B04]/10" />
-        <div className="absolute left-10 top-40 size-32 rounded-full bg-[#FD6B04]/15" />
-        <div className="absolute -right-20 -top-20 size-64 rounded-full bg-[#FD6B04]/20" />
-        <div className="absolute right-56 top-28 size-12 rounded-full bg-[#FD6B04]/25" />
-      </div>
-
-      <div className="relative">
+    <section className="relative isolate mt-2verflow-hidden rounded-[2rem] px-4 py-12 md:px-8 md:py-16">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[34rem]]" />
+      <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-[#FD6B04]/10 px-4 py-1.5 font-semibold text-[#FD6B04]">
-            {icons.crown} Flexible Plans
-          </span>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-5xl">
-            Choose Your <span className="text-[#FD6B04]">Subscription</span>
+          <span className="inline-flex rounded-full border border-[#FD6B04]/20 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#D95A00]">Pricing</span>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-5xl">
+            Explore our plans and <span className="text-[#FD6B04]">pricing</span>
           </h2>
-          <p className="mt-3 text-lg text-base-content/80">Simple, transparent pricing. No hidden fees.</p>
+          <p className="mx-auto mt-3 max-w-xl text-base text-[#514B65]">Choose a plan that’s right for you.</p>
 
           {/* Monthly / Yearly toggle */}
-          <div role="group" aria-label="Billing period" className="mt-6 inline-flex items-center rounded-full bg-base-200 p-1">
+          <div role="group" aria-label="Billing period" className="mt-6 inline-flex items-center rounded-full border border-[#E3E2EE] bg-white/80 p-1 shadow-sm">
             <button type="button" className={toggleBtn("monthly")} aria-pressed={billing === "monthly"} onClick={() => setBilling("monthly")}>
               Monthly
             </button>
             <button type="button" className={`${toggleBtn("yearly")} flex items-center gap-2`} aria-pressed={billing === "yearly"} onClick={() => setBilling("yearly")}>
               Yearly
-              <span className={`rounded-full px-2 py-0.5 text-sm font-semibold ${billing === "yearly" ? "bg-white/20 text-white" : "bg-[#FD6B04]/15 text-[#FD6B04]"}`}>
+              <span className={`rounded-full px-2 py-0.5 text-sm font-semibold ${billing === "yearly" ? "bg-white/20 text-white" : "bg-transparent text-[#D95A00]"}`}>
                 Save 20%
               </span>
             </button>
@@ -140,34 +131,35 @@ export default function Subscription() {
         </div>
 
         {/* Plans */}
-        <div className="mt-14 grid items-stretch gap-10 md:gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="relative flex flex-col rounded-3xl border-2 border-transparent bg-base-100 p-6 shadow-lg transition-all duration-200 hover:border-[#FD6B04] hover:shadow-xl hover:shadow-[#FD6B04]/15 md:p-8"
+              className={`relative flex flex-col rounded-2xl border p-6 shadow-[0_12px_35px_rgba(38,43,77,0.08)] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(253,107,4,0.14)] motion-reduce:transform-none motion-reduce:transition-none md:p-8 ${plan.popular ? "border-[#FD6B04]/35 bg-white ring-1 ring-[#FD6B04]/15 lg:-translate-y-3" : "border-[#E7E8F0] bg-white/95"}`}
             >
               {plan.popular && (
-                <span className="absolute -top-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-[#FD6B04] px-5 py-2 font-semibold text-white shadow-md shadow-[#FD6B04]/30">
-                  {icons.star} Most Popular
+                <span className="absolute right-5 top-5 inline-flex items-center gap-1 rounded-md bg-[#FD6B04] px-2.5 py-1 text-xs font-semibold text-white">
+                  {icons.star}
+                  Most Popular
                 </span>
               )}
 
               <div className="flex items-start gap-4">
-                <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-[#FD6B04]/15 text-[#FD6B04]">
-                  {plan.icon}
-                </div>
                 <div>
-                  <h3 className="text-2xl font-bold">{plan.name}</h3>
+                  <h3 className="text-xl font-bold text-[#171525]">{plan.name}</h3>
                   <p className="text-base-content/70">{plan.description}</p>
                 </div>
               </div>
 
-              <div className="mt-6 flex items-baseline gap-2 border-b border-base-300 pb-6">
-                <span className="text-5xl font-extrabold">${priceOf(plan.monthly)}</span>
-                <span className="text-lg text-base-content/70">/ {billing === "monthly" ? "month" : "year"}</span>
+              <div className="mt-7 flex items-baseline gap-1 border-b border-[#ECECF2] pb-6">
+                <span className="text-2xl font-semibold text-[#171525]">$</span>
+                <span className="text-5xl font-extrabold tracking-tight text-[#171525]">{priceOf(plan.monthly)}</span>
+                <span className="text-base text-[#686779]">/ {billing === "monthly" ? "mo" : "yr"}</span>
               </div>
 
-              <ul className="mt-6 flex-1 space-y-3">
+              <p className="mt-3 text-xs text-[#777687]">{billing === "monthly" ? "Billed monthly" : "Billed yearly"}</p>
+
+              <ul className="mt-5 flex-1 space-y-4 text-sm text-[#393847]">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
                     <CheckIcon />
@@ -178,10 +170,10 @@ export default function Subscription() {
 
               <Link
                 href={plan.cta.href}
-                className={`btn btn-lg mt-8 w-full rounded-xl ${
+                  className={`btn mt-8 min-h-12 w-full rounded-lg border-2 border-b-4 bg-white text-[#171525] shadow-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#FFF8F3] motion-reduce:transform-none motion-reduce:transition-none ${
                   plan.popular
-                    ? "border-[#FD6B04] bg-[#FD6B04] text-white hover:border-[#D95A00] hover:bg-[#D95A00]"
-                    : "border-[#FD6B04] bg-transparent text-[#FD6B04] hover:bg-[#FD6B04] hover:text-white"
+                    ? "border-[#FD6B04] hover:border-[#D95A00]"
+                    : "border-[#DAD9E2] hover:border-[#FD6B04]"
                 }`}
               >
                 {plan.cta.label} {icons.chevron}
@@ -191,7 +183,7 @@ export default function Subscription() {
         </div>
 
         {/* Trust bar */}
-        <div className="mt-12 grid gap-6 rounded-3xl bg-[#FD6B04]/10 p-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+        <div className="mt-10 grid gap-6 border-t border-[#E7E8F0] pt-8 sm:grid-cols-2 lg:grid-cols-4">
           {perks.map((perk, i) => (
             <div key={perk.title} className={`flex items-center gap-4 lg:px-6 ${i > 0 ? "lg:border-l lg:border-[#FD6B04]/25" : ""}`}>
               <span className="shrink-0 text-[#FD6B04]">{perk.icon}</span>

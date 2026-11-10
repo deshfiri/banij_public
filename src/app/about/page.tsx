@@ -92,11 +92,6 @@ export default function About() {
     <div className="space-y-8">
       {/* Hero */}
       <section className="relative overflow-hidden rounded-box bg-base-100 shadow">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-20 -top-20 size-64 animate-float rounded-full bg-[#FD6B04]/10 motion-reduce:animate-none" />
-          <div className="absolute bottom-10 left-1/3 size-10 animate-float rounded-full bg-[#FD6B04]/25 motion-reduce:animate-none" />
-        </div>
-
         <div className="relative grid items-center gap-10 p-6 md:p-12 lg:grid-cols-2">
           <div className="text-center lg:text-left">
             <span className={`${fadeUp} inline-block rounded-full bg-[#FD6B04]/10 px-4 py-1.5 text-sm font-semibold ${accent}`}>
@@ -128,8 +123,6 @@ export default function About() {
           {/* Visual: logo card with floating badges */}
           <div className={`${fadeUp} relative mx-auto w-full max-w-md`} style={delay(2)}>
             <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] shadow-2xl shadow-[#FD6B04]/30">
-              <div aria-hidden="true" className="absolute -right-12 -top-12 size-48 rounded-full bg-white/10" />
-              <div aria-hidden="true" className="absolute -bottom-16 -left-10 size-56 rounded-full bg-white/10" />
               <div className="absolute inset-10 flex items-center justify-center rounded-3xl bg-white/95 p-8 shadow-xl">
                 <Image
                   src="/logo/logo-removebg-preview.png"
@@ -142,14 +135,11 @@ export default function About() {
               </div>
             </div>
 
-            <div className="absolute -left-4 top-8 animate-float rounded-2xl bg-base-100 px-4 py-3 shadow-xl motion-reduce:animate-none md:-left-8">
+            <div className="absolute -left-4 top-8 rounded-2xl bg-base-100 px-4 py-3 shadow-xl md:-left-8">
               <p className={`text-2xl font-extrabold ${accent}`}>120+</p>
               <p className="text-xs text-base-content/70">Happy clients</p>
             </div>
-            <div
-              className="absolute -right-4 bottom-8 animate-float rounded-2xl bg-base-100 px-4 py-3 shadow-xl motion-reduce:animate-none md:-right-8"
-              style={{ animationDelay: "-3s" }}
-            >
+            <div className="absolute -right-4 bottom-8 rounded-2xl bg-base-100 px-4 py-3 shadow-xl md:-right-8">
               <p className={`text-2xl font-extrabold ${accent}`}>98%</p>
               <p className="text-xs text-base-content/70">Satisfaction</p>
             </div>
@@ -182,7 +172,7 @@ export default function About() {
               className={`${fadeUp} group rounded-3xl border-2 border-transparent bg-[#FD6B04]/5 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#FD6B04] hover:bg-base-100 hover:shadow-xl hover:shadow-[#FD6B04]/15`}
               style={delay(i)}
             >
-              <div className="flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] text-white shadow-md shadow-[#FD6B04]/30 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
+              <div className="flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] text-white shadow-md shadow-[#FD6B04]/30">
                 {p.icon}
               </div>
               <h3 className="mt-6 text-xl font-bold">{p.title}</h3>
@@ -211,7 +201,6 @@ export default function About() {
         </div>
 
         <div className="relative overflow-hidden rounded-box bg-base-100 p-6 shadow md:p-10">
-          <div aria-hidden="true" className="absolute -right-16 -top-16 size-48 rounded-full bg-[#FD6B04]/10" />
           <h2 className={`relative ${sectionTitle}`}>
             Why <span className={accent}>Choose</span> Us
           </h2>
@@ -243,10 +232,10 @@ export default function About() {
           {team.map((m, i) => (
             <div
               key={m.role}
-              className={`${fadeUp} group rounded-3xl border-2 border-transparent bg-base-100 p-6 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:border-[#FD6B04] hover:shadow-xl hover:shadow-[#FD6B04]/15`}
+              className={`${fadeUp} group rounded-3xl border-2 border-transparent bg-base-100 p-6 text-center shadow-lg`}
               style={delay(i)}
             >
-              <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] p-1 transition-transform duration-300 group-hover:scale-105">
+              <div className="mx-auto flex size-24 items-center justify-center rounded-full bg-gradient-to-br from-[#FD6B04] to-[#FF9A4D] p-1">
                 <div className="flex size-full items-center justify-center rounded-full bg-base-100 text-[#FD6B04]">
                   {icon(<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM4 21a8 8 0 0116 0" />, "size-10")}
                 </div>
@@ -260,13 +249,6 @@ export default function About() {
 
       {/* Call to action */}
       <section className="relative overflow-hidden rounded-box bg-gradient-to-r from-[#FD6B04] to-[#FF8A2B] px-6 py-12 text-center text-white shadow-lg md:py-14">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-10 -top-10 size-40 animate-float rounded-full bg-white/10 motion-reduce:animate-none" />
-          <div
-            className="absolute -bottom-12 right-10 size-48 animate-float rounded-full bg-white/10 motion-reduce:animate-none"
-            style={{ animationDelay: "-2s" }}
-          />
-        </div>
         <div className="relative">
           <h2 className="text-3xl font-extrabold md:text-4xl">Let&apos;s build something great together</h2>
           <p className="mx-auto mt-3 max-w-xl text-white/90">
